@@ -46,18 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Blackhole.cs" />
      <Compile Include="Assets\Scripts\Camara\TP_Camera.cs" />
-     <Compile Include="Assets\Scripts\EnemyStats.cs" />
-     <Compile Include="Assets\Scripts\Intertia.cs" />
-     <Compile Include="Assets\Scripts\InverseInertia.cs" />
-     <Compile Include="Assets\Scripts\LightningBolt.cs" />
-     <Compile Include="Assets\Scripts\Perlin.cs" />
+     <Compile Include="Assets\Scripts\Enemys\AgentScript.cs" />
+     <Compile Include="Assets\Scripts\Enemys\EnemyStats.cs" />
+     <Compile Include="Assets\Scripts\Enemys\ProximityDetector.cs" />
+     <Compile Include="Assets\Scripts\Personaje\Blackhole.cs" />
+     <Compile Include="Assets\Scripts\Personaje\Intertia.cs" />
+     <Compile Include="Assets\Scripts\Personaje\InverseInertia.cs" />
+     <Compile Include="Assets\Scripts\Personaje\LightningBolt.cs" />
+     <Compile Include="Assets\Scripts\Personaje\Perlin.cs" />
      <Compile Include="Assets\Scripts\Personaje\TP_Controller.cs" />
      <Compile Include="Assets\Scripts\Personaje\TP_Motor.cs" />
      <Compile Include="Assets\Scripts\Personaje\TP_Skills.cs" />
      <Compile Include="Assets\Scripts\Personaje\TP_Status.cs" />
-     <Compile Include="Assets\Scripts\abiltycontroller.cs" />
      <None Include="Assets\Packages\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
