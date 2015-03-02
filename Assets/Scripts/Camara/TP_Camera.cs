@@ -61,7 +61,7 @@ public class TP_Camera : MonoBehaviour
                 x += Input.GetAxis("Horizontal") * velX * distancia * Time.deltaTime;
                 //y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
                 //y = ClampAngle(y, yMinLimit, yMaxLimit);
-                y = 10f; // cambio manual de la inclinación
+                y = 15f; // cambio manual de la inclinación
 
                 Quaternion rotation = Quaternion.Euler(y, x, 0);
 
