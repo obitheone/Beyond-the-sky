@@ -150,7 +150,7 @@ public class TP_Skills : MonoBehaviour {
 		//Iluminate (Color.black,"Beamer");
 		Ray ray =Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if(Physics.Raycast(ray, out hit, 100))//,(1<<LayerMask.NameToLayer("Beamer"))))
+		if(Physics.Raycast(ray, out hit, 1000,(1<<LayerMask.NameToLayer("Beamer"))))
 		{
 			if (hit.collider.gameObject.tag == "Beamer"){
 				if(hit.collider.gameObject.GetComponent<Intertia>() == null)
@@ -177,7 +177,7 @@ public class TP_Skills : MonoBehaviour {
 		//Iluminate (Color.black,"Tractor");
 		Ray ray =Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if(Physics.Raycast(ray, out hit, 100))
+		if(Physics.Raycast(ray, out hit, 1000))
 		{
 			if (hit.collider.gameObject.tag == "Tractor"){
 				if(hit.collider.gameObject.GetComponent<InverseInertia>() == null)
@@ -201,8 +201,10 @@ public class TP_Skills : MonoBehaviour {
 		_tractor=false;
 		InverseInertia script = player.GetComponent("InverseInertia") as InverseInertia;
 		Destroy(script);
+
 		LightningBolt script2 = lefthand.GetComponent("LightningBolt") as LightningBolt;
 		script2.active=false;
+
 		enabledSkill = SkillTypes.noSkill;
 	}
 

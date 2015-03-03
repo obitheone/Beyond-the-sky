@@ -1,10 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemys\ProximityDetector.cs">
     <Files>
-      <File FileName="Assets\Scripts\Enemys\EnemyStats.cs" Line="25" Column="44" />
       <File FileName="Assets\Scripts\Enemys\ProximityDetector.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemys\AgentScript.cs" Line="28" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
