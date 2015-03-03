@@ -51,14 +51,18 @@
      <Compile Include="Assets\Scripts\Enemys\EnemyStats.cs" />
      <Compile Include="Assets\Scripts\Enemys\ProximityDetector.cs" />
      <Compile Include="Assets\Scripts\Personaje\Blackhole.cs" />
+     <Compile Include="Assets\Scripts\Personaje\DRON.cs" />
+     <Compile Include="Assets\Scripts\Personaje\DronFollow.cs" />
      <Compile Include="Assets\Scripts\Personaje\Intertia.cs" />
      <Compile Include="Assets\Scripts\Personaje\InverseInertia.cs" />
      <Compile Include="Assets\Scripts\Personaje\LightningBolt.cs" />
+     <Compile Include="Assets\Scripts\Personaje\LookAt.cs" />
      <Compile Include="Assets\Scripts\Personaje\Perlin.cs" />
      <Compile Include="Assets\Scripts\Personaje\TP_Controller.cs" />
      <Compile Include="Assets\Scripts\Personaje\TP_Motor.cs" />
      <Compile Include="Assets\Scripts\Personaje\TP_Skills.cs" />
      <Compile Include="Assets\Scripts\Personaje\TP_Status.cs" />
+     <None Include="Assets\Packages\README_DRON.txt" />
      <None Include="Assets\Packages\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
