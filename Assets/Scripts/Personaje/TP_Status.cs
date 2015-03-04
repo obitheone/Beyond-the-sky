@@ -45,15 +45,17 @@ public class TP_Status : MonoBehaviour {
 
     public void SubsVida(int num)
     {
-        if (vida - num > 0)
-        {
-            vida = 0;
-            isDead = false;
-        }
-        else vida += num;
+        if (vida - num > 0) {
+				vida -= num;
+				isDead = false;
+		} else {
+				vida = 0;
+				isDead = true;
+		}
     }
 
     public bool IsJumping() { return isJumping; }
+	public bool IsDead() { return isDead; }
     public bool IsReJumping() { return isRejumping; }
     public bool IsTargetting() { return isTargetting; }
 

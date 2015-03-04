@@ -19,8 +19,8 @@ public class DronFollow : MonoBehaviour {
 			Debug.Log("Falta asignar target");
 			return;
 		}
-		agent = GetComponent<NavMeshAgent>();
-		agent.SetDestination(target.position);
+		//agent = GetComponent<NavMeshAgent>();
+		//agent.SetDestination(target.position);
 	}
 
 	
@@ -47,7 +47,7 @@ public class DronFollow : MonoBehaviour {
 		currentY = Mathf.Lerp (currentY, wantedY, YDamping * Time.deltaTime);
 		currentZ = Mathf.Lerp (currentZ, wantedZ, ZDamping * Time.deltaTime);
 
-		if (agent.enabled) 
+	/*	if (agent.enabled) 
 		{
 				
 			//agent.SetDestination(target.position);
@@ -59,17 +59,19 @@ public class DronFollow : MonoBehaviour {
 			transform.position = new Vector3 (currentX, currentY, currentZ);
 			transform.rotation = Quaternion.Slerp (transform.rotation, target.transform.rotation, rotationDamping * Time.deltaTime);
 
-			}
+			}*/
+		transform.position = new Vector3 (currentX, currentY, currentZ);
+		transform.rotation = Quaternion.Slerp (transform.rotation, target.transform.rotation, rotationDamping * Time.deltaTime);
 	}
 	void Update ()
 	{
-		float distancia = Vector3.Distance (target.position, transform.position);
+		/*float distancia = Vector3.Distance (target.position, transform.position);
 		Debug.Log (distancia);
 		if (distancia > 10)
 						agent.enabled = false;
 		else
 						
-			if (distancia<2) agent.enabled = true;
+			if (distancia<2) agent.enabled = true;*/
 	}
 	
 }
