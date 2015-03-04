@@ -54,7 +54,7 @@ public class TP_Skills : MonoBehaviour {
 			{
 				_horizontal=_horizontal+speed;
 			}
-			if (Input.GetKey(KeyCode.Keypad2)) 
+			if (Input.GetKey(KeyCode.Keypad5)) 
 			{
 				_horizontal=_horizontal-speed;
 			}
