@@ -172,4 +172,8 @@ public class TP_Camera : MonoBehaviour
 
         }
     }
+	public Skills GetMode()
+	{
+		return modoCamara;
+	}
 }
