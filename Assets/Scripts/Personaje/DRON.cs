@@ -8,12 +8,12 @@ public class DRON : MonoBehaviour {
 	public Texture[] text;
 	// Use this for initialization
 	void Start () {
-		life = 100;
+		//life = TP_Status.Instance.GetVida();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		life = TP_Status.Instance.GetVida();
 		if(Input.GetKey("0")){
 
 			life -= 2;
