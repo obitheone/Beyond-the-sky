@@ -55,6 +55,13 @@
      <Compile Include="Assets\Scripts\Enemys\EnemyStats.cs" />
      <Compile Include="Assets\Scripts\Enemys\ProximityDetectorFlytaka.cs" />
      <Compile Include="Assets\Scripts\Enemys\Status_Controller_Flytaka.cs" />
+     <Compile Include="Assets\Scripts\Menus\Change_color_tittle.cs" />
+     <Compile Include="Assets\Scripts\Menus\Credits.cs" />
+     <Compile Include="Assets\Scripts\Menus\Menu.cs" />
+     <Compile Include="Assets\Scripts\Menus\MenuManager.cs" />
+     <Compile Include="Assets\Scripts\Menus\MenuReturn.cs" />
+     <Compile Include="Assets\Scripts\Menus\Portada.cs" />
+     <Compile Include="Assets\Scripts\Menus\ReturnMenu.cs" />
      <Compile Include="Assets\Scripts\Personaje\Blackhole.cs" />
      <Compile Include="Assets\Scripts\Personaje\DRON.cs" />
      <Compile Include="Assets\Scripts\Personaje\DronFollow.cs" />
