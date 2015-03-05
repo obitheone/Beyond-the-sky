@@ -11,6 +11,7 @@ public class TP_Status : MonoBehaviour {
 
 
     //PRIVATE
+	private bool isSinking;
     private int vida;
     private bool isDead;
     private bool isJumping;
@@ -27,6 +28,7 @@ public class TP_Status : MonoBehaviour {
 	void Start () {
         vida = 100;
         isDead = false;
+		isSinking = false;
 	}
 
     public int GetVida(){ return vida; }
@@ -51,6 +53,7 @@ public class TP_Status : MonoBehaviour {
 		} else {
 				vida = 0;
 				isDead = true;
+				StartSinking ();
 		}
     }
 
@@ -76,6 +79,22 @@ public class TP_Status : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if(isSinking)
+		{
+			TP_Skills.Instance.player.transform.Translate (-Vector3.up * 0.25f * Time.deltaTime);
+
+		}
+	}
+
+	public void StartSinking ()
+	{
+		isSinking = true;
+		TP_Motor.Instance.gravity = -0.3f;
+		StartCoroutine( CargarEscena( 0.5f ) );
+	}
 	
+	IEnumerator CargarEscena( float t ) {
+		yield return new WaitForSeconds( t );
+		Application.LoadLevel(Application.loadedLevel);
 	}
 }

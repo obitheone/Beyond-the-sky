@@ -11,6 +11,8 @@ public class AgentScriptFlytaka : MonoBehaviour {
 	public Transform[] patrolWayPoints;	// Ruta que sigue el que apatrulla la ciudad
 	public float chaseTimer = 0f;	// Tiempo que lleva persiguiendo.
 	public GameObject tempshoot;	//la bala que dispara;
+	public float fireRate = 0.5f;
+	private float nextFire = 0.0f;
 
 	private NavMeshAgent agent;
 	private int wayPointIndex = 0;	// indice dle waypoint donde nos encontramos.
@@ -103,8 +105,12 @@ public class AgentScriptFlytaka : MonoBehaviour {
 		Quaternion rotation = Quaternion.LookRotation(relativePos);
 		transform.rotation = rotation;
 
-		GameObject newProjectile = Instantiate( tempshoot, transform.position, transform.rotation ) as GameObject;
-		newProjectile.rigidbody.velocity = transform.TransformDirection( new Vector3( 0, 0, 10) );
+		if (Time.time > nextFire)
+		{
+			nextFire = Time.time + fireRate;
+			GameObject newProjectile = Instantiate( tempshoot, transform.position, transform.rotation ) as GameObject;
+			newProjectile.rigidbody.velocity = transform.TransformDirection( new Vector3( 0, 0, 10) );
+		}
 	}
 	void meele_attack()
 	{
@@ -114,8 +120,12 @@ public class AgentScriptFlytaka : MonoBehaviour {
 		Quaternion rotation = Quaternion.LookRotation(relativePos);
 		transform.rotation = rotation;
 
-		GameObject newProjectile = Instantiate( tempshoot, transform.position, transform.rotation ) as GameObject;
-		newProjectile.rigidbody.velocity = transform.TransformDirection( new Vector3( 0, 0, 10) );
+		if (Time.time > nextFire)
+		{
+			nextFire = Time.time + fireRate;
+			GameObject newProjectile = Instantiate( tempshoot, transform.position, transform.rotation ) as GameObject;
+			newProjectile.rigidbody.velocity = transform.TransformDirection( new Vector3( 0, 0, 10) );
+		}
 	}
 
 }

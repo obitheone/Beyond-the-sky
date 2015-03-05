@@ -20,7 +20,7 @@ public class TP_Motor : MonoBehaviour {
 
 
     //PRIVATE
-    private float verticalMovement;
+    private float verticalMovement=0;
     //private bool isJumping;
     //private bool isReJumping;
     private float floorPos;

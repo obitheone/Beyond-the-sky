@@ -13,7 +13,6 @@ public class Destroy_delay : MonoBehaviour {
 		{
 				TP_Status.Instance.SubsVida(1);
 				int temp=TP_Status.Instance.GetVida();
-				Debug.Log(temp);
 		}
 	}
 }
