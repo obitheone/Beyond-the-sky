@@ -225,22 +225,25 @@ public class TP_Skills : MonoBehaviour {
 	private void throwobject(float energy)
 	{
 		//GameObject Beta = GameObject.Find("Beta");
-		_beamobject.rigidbody.AddForce(player.transform.forward * energy);
+		//_beamobject.rigidbody.AddForce(player.transform.forward * energy);
 		
 		//miramos si el raton en este momento hace hit sobre algun objeto, si es asi lanzamos en esa direccion
 		Ray ray =Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if(Physics.Raycast(ray, out hit, 100))
+		if(Physics.Raycast(ray, out hit, 500))
 		{
-			
-			Vector3 direction=hit.point-_beamobject.transform.position;
-			//direction=direction.normalize();
+
+			Vector3 direction=(hit.point-_beamobject.transform.position).normalized;
+
+
 			if (_beamobject.transform!=hit.transform)
-				_beamobject.rigidbody.AddForce(direction.normalized*energy,ForceMode.Impulse);
+				//_beamobject.rigidbody.AddForce(direction*energy,ForceMode.Impulse);
+				_beamobject.rigidbody.AddForce(ray.direction.normalized * energy,ForceMode.Impulse);
 			
 		}
 		else//si no hace hit marcamos una distancia de 100 y apuntamos alli lanzando en esa direccion.
 		{
+			//Physics.Raycast(ray, out hit, 100);
 			_beamobject.rigidbody.AddForce(ray.direction.normalized * energy,ForceMode.Impulse);
 		}
 		deactivatetractorbeam();
