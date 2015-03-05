@@ -6,6 +6,7 @@ public class Status_Controller_Orutaka : MonoBehaviour {
 	private const int ATTACK=0;
 	private const int LOOK=1;
 	private const int PATROL=2;
+	private const int DEAD=3;
 	
 	private const int CHARGE_ATTACK=0;
 	private bool is_attaking = false;
@@ -21,7 +22,7 @@ public class Status_Controller_Orutaka : MonoBehaviour {
 	//variables de salida
 	public int state;
 	public int attack_type;
-	
+	private EnemyStats ES;
 	// Use this for initialization
 	void Start () {
 		state = PATROL;
@@ -29,26 +30,29 @@ public class Status_Controller_Orutaka : MonoBehaviour {
 		lookingTime = 0;
 		player_view = false;
 		is_attaking = false;
+		ES = GetComponent<EnemyStats> () as EnemyStats;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-			if (player_view) //vemos al player
-			{
-			if (lookingTime<look_time) {state=LOOK;}
-				else 
-				{
+		if (!ES.isDead) {
+						if (player_view) { //vemos al player
+								if (lookingTime < look_time) {
+										state = LOOK;
+								} else {
 
-					state=ATTACK;
-					attack_type=CHARGE_ATTACK;
-					is_attaking = true;
+										state = ATTACK;
+										attack_type = CHARGE_ATTACK;
+										is_attaking = true;
+								}
+						} else { //no vemos al player
+								state = PATROL;
+
+						}
+				} 
+		else {
+			state = DEAD;
 				}
-			}
-			else //no vemos al player
-			{
-					state=PATROL;
-
-			}
 	}
 }

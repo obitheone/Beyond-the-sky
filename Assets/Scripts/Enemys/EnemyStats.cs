@@ -4,13 +4,14 @@ using System.Collections;
 public class EnemyStats : MonoBehaviour {
 
 	public int startingHealth = 100; 	//vida inicial
-	public int currentHealth;			//vida actual
-	public float sinkSpeed = 2.5f; 		//velocidad en que se hunde al morir
+	public float currentHealth;			//vida actual
+	public float sinkSpeed = 0.5f; 		//velocidad en que se hunde al morir
 	public AudioClip deathClip;			//sonido al morir
+	public AudioClip damageClip;		//sonido al morir
 
 	AudioSource enemyAudio;
 	CapsuleCollider capsuleCollider;
-	bool isDead;
+	public bool isDead;
 	bool isSinking;
 
 	//Animator anim; //animacion de muerte
@@ -34,11 +35,11 @@ public class EnemyStats : MonoBehaviour {
 		}
 	}
 
-	public void TakeDamage (int amount, Vector3 hitPoint)
+	public void TakeDamage (float amount, Vector3 hitPoint)
 	{
 		if(isDead)
 			return;
-		
+		enemyAudio.clip = damageClip;
 		enemyAudio.Play ();
 		
 		currentHealth -= amount;
@@ -49,6 +50,7 @@ public class EnemyStats : MonoBehaviour {
 		if(currentHealth <= 0)
 		{
 			Death ();
+			StartSinking ();
 		}
 	}
 
@@ -59,7 +61,7 @@ public class EnemyStats : MonoBehaviour {
 		capsuleCollider.isTrigger = true;
 		//anim.SetTrigger ("Dead"); //activamos la animacion de la muerte.
 		enemyAudio.clip = deathClip;
-		enemyAudio.Play ();
+		enemyAudio.Play();
 	}
 
 	public void StartSinking ()
@@ -68,5 +70,14 @@ public class EnemyStats : MonoBehaviour {
 		GetComponent <Rigidbody> ().isKinematic = true;
 		isSinking = true;
 		Destroy (gameObject, 2f);
+	}
+
+	void  OnCollisionEnter (Collision hit)
+	{
+		if (hit.gameObject.tag == "Beamer") 
+		{
+			Rigidbody body = hit.collider.attachedRigidbody;
+			TakeDamage(body.sleepVelocity*200,hit.transform.position);	
+		}
 	}
 }

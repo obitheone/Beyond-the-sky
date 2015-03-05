@@ -6,6 +6,7 @@ public class Status_Controller_Flytaka : MonoBehaviour {
 	private const int ATTACK=0;
 	private const int CHASE=1;
 	private const int PATROL=2;
+	private const int DEAD=3;
 
 	private const int RANGE_ATTACK=0;
 	private const int MEELE_ATTACK=1;
@@ -24,7 +25,7 @@ public class Status_Controller_Flytaka : MonoBehaviour {
 	//variables de salida
 	public int state;
 	public int attack_type;
-
+	private EnemyStats ES;
 	/// <summary>
 	/// Las reglas del cambio de estado:
 	/// 
@@ -40,36 +41,35 @@ public class Status_Controller_Flytaka : MonoBehaviour {
 		player_distace = 100;
 		chasingTime = 100;
 		player_view = false;
+		ES = GetComponent<EnemyStats> () as EnemyStats;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (player_view) //vemos al player
-				{
-			if (player_distace>range_distance) state=CHASE;
-					else 
-					{
-						if (player_distace>range_meele) 
-						{
-							state=ATTACK;
-							attack_type=RANGE_ATTACK;
+				if (!ES.isDead) {
+						if (player_view) { //vemos al player
+								if (player_distace > range_distance)
+										state = CHASE;
+								else {
+										if (player_distace > range_meele) {
+												state = ATTACK;
+												attack_type = RANGE_ATTACK;
+										} else {
+												state = ATTACK;
+												attack_type = MEELE_ATTACK;
+										}
+								}
+						} else { //no vemos al player
+								if (chasingTime <= chase_time) {
+										state = CHASE;
+								} else {
+										state = PATROL;
+								}
 						}
-						else {
-							state=ATTACK;
-							attack_type=MEELE_ATTACK;
-						}
-					}
-				}
-		else //no vemos al player
-		{
-			if (chasingTime<=chase_time)
+				} 
+				else 
 				{
-					state=CHASE;
+					state=DEAD;
 				}
-			else
-			{
-				state=PATROL;
-			}
 		}
-	}
 }
