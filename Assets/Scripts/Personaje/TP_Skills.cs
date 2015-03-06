@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using System.Collections;
 
 public enum SkillTypes { noSkill, tractionBeam, liftingHook, blackHole }
@@ -76,6 +77,7 @@ public class TP_Skills : MonoBehaviour {
 
 			if (Input.GetMouseButtonUp (1)) 
 			{ 
+				if (script.energy<0) script.energy=0;
 				throwobject(script.energy);
 			}
 		}
@@ -233,20 +235,22 @@ public class TP_Skills : MonoBehaviour {
 		if(Physics.Raycast(ray, out hit, 500))
 		{
 
-			Vector3 direction=(hit.point-_beamobject.transform.position).normalized;
-
+			Vector3 direction=(hit.collider.transform.position-_beamobject.transform.position);
+			direction.Normalize();
 
 			if (_beamobject.transform!=hit.transform)
-				//_beamobject.rigidbody.AddForce(direction*energy,ForceMode.Impulse);
-				_beamobject.rigidbody.AddForce(ray.direction.normalized * energy,ForceMode.Impulse);
-			
+			{
+				//Debug.DrawLine (hit.point, _beamobject.transform.position, Color.red);
+				_beamobject.rigidbody.AddForce(direction*energy,ForceMode.Impulse);
+			}
 		}
 		else//si no hace hit marcamos una distancia de 100 y apuntamos alli lanzando en esa direccion.
 		{
 			//Physics.Raycast(ray, out hit, 100);
-			_beamobject.rigidbody.AddForce(ray.direction.normalized * energy,ForceMode.Impulse);
+			_beamobject.rigidbody.AddForce(ray.direction.normalized * energy);
 		}
 		deactivatetractorbeam();
 	}
+		
 }
 	
