@@ -20,17 +20,12 @@ public class TP_Motor : MonoBehaviour {
 
 
     //PRIVATE
-    private float verticalMovement=0;
-    //private bool isJumping;
-    //private bool isReJumping;
-    private float floorPos;
+    private float verticalMovement;
 
     void Awake()
     {
         Instance = this;
         moveVector = targetDir = Vector3.zero;
-        //isJumping = isReJumping = false;
-        floorPos = 0f;
     }
 
 	// Use this for initialization
@@ -40,12 +35,6 @@ public class TP_Motor : MonoBehaviour {
 
     private void UpdateMovement() //REVISAR
     {
-        if (TP_Controller.Instance.controlador.isGrounded)
-        {
-            TP_Status.Instance.SetJumping(false);
-            TP_Status.Instance.SetReJumping(false);
-        }
-
         Transform camara = TP_Camera.Instance.transform;
 
         //coordenadas de cámara a wolrd space
@@ -73,28 +62,15 @@ public class TP_Motor : MonoBehaviour {
         //actualizar movimiento del controlador
         TP_Controller.Instance.controlador.Move(targetDir * Time.deltaTime);
 
-    }
-
-  private void UpdateMovement_old()
-    {
-        if (moveVector.magnitude > 1) moveVector = Vector3.Normalize(moveVector);
-
-        Vector3 newDirection = Quaternion.LookRotation(transform.position - Camera.main.transform.position).eulerAngles;
-        newDirection.x = 0;
-        newDirection.z = 0;
-        Quaternion rot = Camera.main.transform.rotation;
-        Camera.main.transform.rotation = Quaternion.Euler(newDirection);
-        transform.Translate(moveVector * moveSpeed * Time.deltaTime, Camera.main.transform);
-        Camera.main.transform.rotation = rot;
-
-        //Encarar al jugador hacia donde se mueve
-        if (moveVector != Vector3.zero)
+        if (TP_Controller.Instance.controlador.isGrounded)
         {
-            Quaternion newRotation = Quaternion.LookRotation(moveVector);
-            transform.rotation = Quaternion.Slerp(transform.rotation, newRotation * Quaternion.Euler(newDirection)/*Camera.main.transform.rotation*/, Time.deltaTime * 5f);
+            TP_Status.Instance.SetJumping(false);
+            Debug.Log("Salto en UpdateMovement(): " + TP_Status.Instance.IsJumping());
+            TP_Status.Instance.SetReJumping(false);
+            targetDir.y = 0;
         }
-    }
 
+    }
 
     void FacePlayerToMovementDir()
     {
@@ -132,21 +108,5 @@ public class TP_Motor : MonoBehaviour {
             verticalMovement -= gravity * Time.deltaTime;
     }
 
-    /*
-    public void OnCollisionStay(Collision col)
-    {
-        //Debug.Log("I'm Grounded !!!");
-        //Debug.Log("Floor Pos: " + floorPos);
-        //Debug.Log("My Pos: " + this.transform.position.y);
-        isJumping = false;
-        isReJumping = false;
-        floorPos = this.transform.position.y;
-    }
-
-    public void OnCollisionExit(Collision col)
-    {
-        isGrounded = false;
-    }
-    */
 
 }

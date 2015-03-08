@@ -35,8 +35,11 @@ public class TP_Status : MonoBehaviour {
 
     public void SetVida(int num)
     {
-        if (num == 0) isDead = true;
-        else if (num <= 100) vida = num;
+        if (num == 0)
+        {
+            Debug.LogError("No se puede asignar vida 0");
+            return;
+        } else if (num <= 100) vida = num;
     }
 
     public void AddVida(int num)
@@ -47,20 +50,29 @@ public class TP_Status : MonoBehaviour {
 
     public void SubsVida(int num)
     {
-        if (vida - num > 0) {
-				vida -= num;
-				isDead = false;
-		} else {
-				vida = 0;
-				isDead = true;
-				StartSinking ();
-		}
+        if (vida - num > 0)
+        {
+            vida -= num;
+        }
+        else
+        {
+            vida = 0;
+            isDead = true;
+            OnDeath();
+        }
+    }
+
+    public void OnDeath()
+    {
+        //do something on Death
+        isSinking = true;
+        StartCoroutine(CargarEscena(0.5f));
     }
 
     public bool IsJumping() { return isJumping; }
-	public bool IsDead() { return isDead; }
     public bool IsReJumping() { return isRejumping; }
     public bool IsTargetting() { return isTargetting; }
+    public bool IsDead() { return isDead; }
 
     public void SetJumping(bool value)
     {
@@ -80,17 +92,9 @@ public class TP_Status : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(isSinking)
-		{
+        {
 			TP_Skills.Instance.player.transform.Translate (-Vector3.up * 0.25f * Time.deltaTime);
-
 		}
-	}
-
-	public void StartSinking ()
-	{
-		isSinking = true;
-		TP_Motor.Instance.gravity = -0.3f;
-		StartCoroutine( CargarEscena( 0.5f ) );
 	}
 	
 	IEnumerator CargarEscena( float t ) {
