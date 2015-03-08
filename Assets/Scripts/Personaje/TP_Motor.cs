@@ -65,7 +65,7 @@ public class TP_Motor : MonoBehaviour {
         if (TP_Controller.Instance.controlador.isGrounded)
         {
             TP_Status.Instance.SetJumping(false);
-            Debug.Log("Salto en UpdateMovement(): " + TP_Status.Instance.IsJumping());
+//            Debug.Log("Salto en UpdateMovement(): " + TP_Status.Instance.IsJumping());
             TP_Status.Instance.SetReJumping(false);
             targetDir.y = 0;
         }

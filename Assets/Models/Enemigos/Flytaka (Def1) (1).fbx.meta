@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 67d7aca0ad5a6c340a3b3d37ab17777a
+guid: dcd6516f88338f144b83d922389c8ea4
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,8 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: nurbsToPoly1
-    6400000: //RootNode
+    4300000: polySurface5
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -29,9 +28,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0250000004
+    globalScale: .0399999991
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -61,6 +60,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   additionalBone: 0
   userData: 

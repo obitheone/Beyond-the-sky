@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 67d7aca0ad5a6c340a3b3d37ab17777a
+guid: 1c5f24e6049a7e1439684ccbe3ab8a34
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: nurbsToPoly1
+    4300000: ConjuntoSetasV1
     6400000: //RootNode
     9500000: //RootNode
   materials:
@@ -29,7 +29,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0250000004
+    globalScale: .100000001
     meshCompression: 0
     addColliders: 1
     importBlendShapes: 1

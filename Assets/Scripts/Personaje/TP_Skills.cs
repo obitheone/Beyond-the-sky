@@ -10,7 +10,6 @@ public class TP_Skills : MonoBehaviour {
 
     //PUBLIC
     public static TP_Skills Instance;
-    private string _key_press;
     private GameObject _object;
     private GameObject _beamobject;
     private GameObject _tractorobject;
@@ -37,6 +36,7 @@ public class TP_Skills : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+		_beam = false;
 	}
 	
 	void FixedUpdate()	
@@ -96,6 +96,7 @@ public class TP_Skills : MonoBehaviour {
 
 			if (!_beam){
 				if (Input.GetMouseButtonDown (0)) {
+					Debug.Log ("dentro");
 					activatetractorbeam();
 					}
 			}
