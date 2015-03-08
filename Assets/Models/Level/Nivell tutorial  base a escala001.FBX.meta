@@ -35,6 +35,12 @@ ModelImporter:
     4300006: escal__001
     4300008: terreny002
     4300010: terreny 001
+    6400000: escal__ 002
+    6400002: escal__001
+    6400004: terreny 001
+    6400006: terreny002
+    6400008: terreny003
+    6400010: terreny004
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -57,7 +63,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: .00999999978
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

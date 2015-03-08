@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{80B7E3AA-FF93-D559-7415-4D6566CB2DF8}") = "Beyond-the-sky", "Assembly-CSharp.csproj", "{C56A2E96-2775-7674-69C6-9C883D573A79}"
 EndProject
+Project("{80B7E3AA-FF93-D559-7415-4D6566CB2DF8}") = "Beyond-the-sky", "Assembly-CSharp-Editor.csproj", "{0E0AE8A8-B98D-0CE2-1064-9F64BAD101C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{C56A2E96-2775-7674-69C6-9C883D573A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C56A2E96-2775-7674-69C6-9C883D573A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C56A2E96-2775-7674-69C6-9C883D573A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E0AE8A8-B98D-0CE2-1064-9F64BAD101C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E0AE8A8-B98D-0CE2-1064-9F64BAD101C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E0AE8A8-B98D-0CE2-1064-9F64BAD101C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E0AE8A8-B98D-0CE2-1064-9F64BAD101C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																														GlobalSection(MonoDevelopProperties) = preSolution
+																																																																								GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
