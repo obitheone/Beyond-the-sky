@@ -1,14 +1,18 @@
 fileFormatVersion: 2
-guid: 455b70cb3a2bcdc499424a1e5b42c2ad
+guid: b072984ce80a2b94b8072cde533761a9
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Arbre
-    6400000: //RootNode
+    100000: left
+    100002: //RootNode
+    100004: TroncoV1
+    400000: left
+    400002: //RootNode
+    400004: TroncoV1
+    2300000: TroncoV1
+    3300000: TroncoV1
+    4300000: TroncoV1
+    6400000: TroncoV1
     9500000: //RootNode
   materials:
     importMaterials: 1

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 455b70cb3a2bcdc499424a1e5b42c2ad
+guid: d483e058b20b7ef42a42935110f1ad61
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Arbre
+    4300000: nurbsToPoly1
     6400000: //RootNode
     9500000: //RootNode
   materials:

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 455b70cb3a2bcdc499424a1e5b42c2ad
+guid: 195987e06870a2446aa49d3e5955a572
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Arbre
+    4300000: RocaV2
     6400000: //RootNode
     9500000: //RootNode
   materials:
