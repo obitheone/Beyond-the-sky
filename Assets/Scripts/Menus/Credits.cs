@@ -1,39 +1,25 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class Credits : MonoBehaviour
-{
-	private float offset;
-	public float speed = 29.0f;
-	public GUIStyle style;
-	public Rect viewArea;
-	
-	private void Start()
-	{
-		this.offset = this.viewArea.height;
+public class Credits : MonoBehaviour {
+
+	public float scroll_speed = 2.5f;
+	float n_ypos;
+	bool credits_on = true;
+	// Use this for initialization
+	void Start () {
+
 	}
 	
-	private void Update()
-	{
-		this.offset -= Time.deltaTime * this.speed;
-	}
+	// Update is called once per frame
+	void Update () {
 	
-	private void OnGUI()
-	{
-		GUI.BeginGroup(this.viewArea);
-		
-		var position = new Rect(0, this.offset, this.viewArea.width, this.viewArea.height);
-		var text = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- Quisque a mauris sit amet neque posuere molestie at laoreet lorem.
- Suspendisse accumsan pretium ante, sit amet tincidunt tortor tempor ac.
-  
-  
-  
- Sed condimentum mi id nisi egestas non vulputate urna porttitor.
- Mauris sed mauris vitae velit imperdiet vulputate ut nec velit.
- Maecenas convallis posuere velit, quis interdum justo mattis vel.";
-		
-		GUI.Label(position, text, this.style);
-		
-		GUI.EndGroup();
+		if(Input.GetKeyDown(KeyCode.Escape)|| transform.position.y >= 40) Application.LoadLevel("Menu_joc");
+
+		else{
+
+			n_ypos = Mathf.Lerp(transform.position.y, transform.position.y + scroll_speed,Time.deltaTime);
+			transform.position = new Vector3(transform.position.x,n_ypos,transform.position.z);
+		}
 	}
 }
