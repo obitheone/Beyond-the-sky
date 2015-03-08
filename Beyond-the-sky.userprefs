@@ -1,7 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Debug\Status_dbg.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menus\Credits.cs">
     <Files>
+      <File FileName="Assets\Scripts\Menus\Credits.cs" Line="7" Column="15" />
       <File FileName="Assets\Scripts\Debug\Status_dbg.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

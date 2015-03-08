@@ -14,7 +14,7 @@ public class Credits : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(Input.GetKeyDown(KeyCode.Escape)|| transform.position.y >= 40) Application.LoadLevel("Menu_joc");
+		if(Input.GetKeyDown(KeyCode.Escape)|| transform.position.y >= 46) Application.LoadLevel("Menu_joc");
 
 		else{
 
