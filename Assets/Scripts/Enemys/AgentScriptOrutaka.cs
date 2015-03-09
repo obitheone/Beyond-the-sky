@@ -141,7 +141,7 @@ public class AgentScriptOrutaka : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 
-		Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.3f);
+		Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.9f);
 		int i = 0;
 		while (i < hitColliders.Length) {
 			if (hitColliders[i].tag == "Player" && !TP_Status.Instance.IsDead())

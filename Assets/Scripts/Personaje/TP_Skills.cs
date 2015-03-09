@@ -96,7 +96,6 @@ public class TP_Skills : MonoBehaviour {
 
 			if (!_beam){
 				if (Input.GetMouseButtonDown (0)) {
-					Debug.Log ("dentro");
 					activatetractorbeam();
 					}
 			}
