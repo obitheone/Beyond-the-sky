@@ -61,6 +61,11 @@ void OnGUI () {
 		else GUI.Label(new Rect(20,160,150,20),"Targetting",blanc);
 
 	}
+
+	void Update () {
+		if (Input.GetKeyDown (KeyCode.Escape))
+			Application.LoadLevel ("Menu_joc");
+	}
 	
 }
 

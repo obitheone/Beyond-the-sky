@@ -19,6 +19,7 @@ public class Credits : MonoBehaviour {
 		else{
 
 			n_ypos = Mathf.Lerp(transform.position.y, transform.position.y + scroll_speed,Time.deltaTime);
+
 			transform.position = new Vector3(transform.position.x,n_ypos,transform.position.z);
 		}
 	}

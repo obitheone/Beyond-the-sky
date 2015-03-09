@@ -19,7 +19,8 @@ public class TP_Camera : MonoBehaviour
     private bool cameraPosChanged;
     public GameObject objetivo;
     public float velX, velY;
-    public float velOrbitX;
+    public float velOrbitX, velOrbitY;
+	public float distOrbitYMin,distOrbitYMax;
     public float smoothX, smoothY;
     float angleRotated = 0;
 
@@ -63,7 +64,7 @@ public class TP_Camera : MonoBehaviour
                 x += Input.GetAxis("Horizontal") * velX * distancia * Time.deltaTime;
                 //y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
                 //y = ClampAngle(y, yMinLimit, yMaxLimit);
-                y = 25f; // cambio manual de la inclinación
+                y = 20f; // cambio manual de la inclinación
 
                 Quaternion rotation = Quaternion.Euler(y, x, 0); //rotación por defecto
 
@@ -107,13 +108,13 @@ public class TP_Camera : MonoBehaviour
 
                 x += Input.GetAxis("Mouse X") * velOrbitX * distancia * Time.deltaTime;
                 //Debug.Log("Valor de X: " + x + " Rotacion Skyler en X: " + objetivo.transform.localEulerAngles.y);
-                //y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-                //y = ClampAngle(y, yMinLimit, yMaxLimit);
-                y = 30f; // cambio manual de la inclinación
+                y -= Input.GetAxis("Mouse Y") * velOrbitY * distancia * Time.deltaTime;
+                y = ClampAngle(y, distOrbitYMin, distOrbitYMax);
+                //y = 20f; // cambio manual de la inclinación
 
                 rotation = Quaternion.Euler(y, x, 0);
 
-                //distancia = Mathf.Clamp(distancia - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
+                //distancia = Mathf.Clamp(distancia - Input.GetAxis("Mouse ScrollWheel") * 5, distOrbitYMin, distOrbitYMax);
 
                 negDistance = new Vector3(0.0f, 0.0f, -distancia);
                 position = rotation * negDistance + objetivo.transform.position;
@@ -129,6 +130,8 @@ public class TP_Camera : MonoBehaviour
                 angles.x = 0f;
                 transform.rotation = Quaternion.Euler(angles);
                 transform.Translate(Input.GetAxisRaw("Horizontal") * 10f * Time.deltaTime, 0f, Input.GetAxisRaw("Vertical") * 10f * Time.deltaTime);
+				if(Input.GetKey(KeyCode.Space))transform.Translate(Vector3.up * 5f * Time.deltaTime);
+				if(Input.GetKey(KeyCode.LeftShift))transform.Translate(-Vector3.up * 5f * Time.deltaTime);
                 angles.x += temp;
 
                 angleRotated += Input.GetAxisRaw("Mouse Y") * 90f * Time.deltaTime;
@@ -161,9 +164,9 @@ public class TP_Camera : MonoBehaviour
                 switch (cameraPosChanged)
                 {
                     case true:
-                        cameraPosChanged = false;
-                        this.transform.position = points[currentPointIndex].position;
-                        this.transform.rotation = points[currentPointIndex].rotation;
+                        if (Vector3.Distance(transform.position,points[currentPointIndex].position) < 0.5f)cameraPosChanged = false;
+                        this.transform.position = Vector3.Slerp(transform.position,points[currentPointIndex].position,2*Time.deltaTime);
+                        this.transform.rotation = Quaternion.Slerp(transform.rotation, points[currentPointIndex].rotation, 2* Time.deltaTime);
                         break;
                     case false: break;
                 }
@@ -191,4 +194,12 @@ public class TP_Camera : MonoBehaviour
     {
         isResetingCamera = !isResetingCamera;
     }
+
+	private float ClampAngle (float angle, float min, float max) {
+		if (angle < -360)
+			angle += 360;
+		if (angle > 360)
+			angle -= 360;
+		return Mathf.Clamp(angle, min, max);
+	}
 }
