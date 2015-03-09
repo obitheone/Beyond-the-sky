@@ -51,6 +51,7 @@ public class TP_Camera : MonoBehaviour
     void Update()
     {
         if (modoCamara != Skills.Dios) godMode = false;
+		if (modoCamara != Skills.Cinema)SplineWalker.Instance.enabled = false;
     }
 
     // Update is called once per frame
@@ -175,6 +176,13 @@ public class TP_Camera : MonoBehaviour
             case Skills.Cinema:
 
                 //codigo de movimiento de cámara aqui
+			Debug.Log (Vector3.Distance(transform.position,SplineWalker.Instance.spline.GetPoint(0f)));
+				if (Vector3.Distance(transform.position,SplineWalker.Instance.spline.GetPoint(0f)) > 0.5f){
+					transform.position = Vector3.Slerp(transform.position,SplineWalker.Instance.spline.GetPoint(0f), 2f * Time.deltaTime);
+				} else if(!SplineWalker.Instance.enabled){
+					SplineWalker.Instance.progress = 0f;
+					SplineWalker.Instance.enabled = true;
+				}
                 break;
 
             case Skills.Targetting:
